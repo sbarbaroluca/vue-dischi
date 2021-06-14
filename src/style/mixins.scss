@@ -1,0 +1,22 @@
+@mixin loaderPlacement {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9;
+  z-index: 2;
+}
+
+@mixin flex-center($value: "both") {
+  display: flex;
+  @if $value=="horizontal" {
+    justify-content: center;
+  }
+  @else if $value=="vertical" {
+    align-items: center;
+  }
+  @else {
+    justify-content: center;
+    align-items: center;
+  }
+}

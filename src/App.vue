@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <Header
+          :arrayGeneralePieno="arrayGenerale"
+          @passoValore="salvoValore"
+        />
+        <Main
+          @passoArrayGenerale="salvoArrayGenerale"
+          :valoreSelezionato="valoreSelezionato"
+          :chiaveDiSelezione="chiaveDiSelezione"
+        />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from "./components/Header";
+import Main from "./components/Main";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+        Header,
+        Main
+  },
+  data() {
+    return {
+        genreArray: [],
+        valoreSelezionato: undefined,
+        chiaveDiSelezione: "all",
+        arrayGenerale: []
+    };
+  },
+  methods: {
+    salvoValore(valore, chiaveDiSelezione) {
+      this.valoreSelezionato = valore;
+      if (chiaveDiSelezione != undefined) {
+        this.chiaveDiSelezione = chiaveDiSelezione;
+      }
+    },
+    salvoArrayGenerale(array) {
+      this.arrayGenerale = array;
+    }
   }
-}
+};
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./style/general";
 </style>

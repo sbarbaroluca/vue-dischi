@@ -1,0 +1,12 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~@fontsource/rubik/index.css";
+@import "~@fontsource/rubik/500.css";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Rubik";
+}
